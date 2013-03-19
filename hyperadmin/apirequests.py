@@ -46,8 +46,7 @@ class APIRequest(object):
         media_types = self.media_types.keys()
         if not media_types:
             return val
-        return (mimeparse.best_match(media_types, val)\
-                or val).replace(' ', '+')
+        return mimeparse.best_match(media_types, val) or val
     
     def get_request_type(self):
         """
